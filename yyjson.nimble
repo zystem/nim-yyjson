@@ -1,4 +1,4 @@
-version       = "1.0.0"
+version       = "1.0.1"
 author        = "Andrii Zahriadskyi"
 description   = "Thin Nim bindings for yyjson with a small idiomatic high-level API"
 license       = "MIT"
@@ -24,6 +24,9 @@ const
   ]
 
 task test, "Run tests":
+  exec "nim c -r " & testNimFlags & "--nimcache:/tmp/nim_yyjson_cache_basic" &
+       " --out:/tmp/nim_yyjson_basic tests/t_basic.nim"
+
   for name in upstreamTests:
     let path = "tests/upstream/" & name & ".nim"
     let outFile = "/tmp/nim_yyjson_" & name
