@@ -1,0 +1,12 @@
+steps:
+  test:
+    image: nimlang/nim:2.2.4-alpine
+    commands:
+      - apk add --no-cache gcc musl-dev openssl-dev pcre-dev git curl
+      - git config --global --add safe.directory "$CI_WORKSPACE"
+      - nimble install --depsOnly -y
+      - nimble test
+    when:
+      - event: push
+      - event: pull_request
+      - event: tag
