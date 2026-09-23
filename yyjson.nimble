@@ -4,6 +4,7 @@ description   = "Thin Nim bindings for yyjson with a small idiomatic high-level 
 license       = "MIT"
 srcDir        = "src"
 skipDirs      = @["tests", "examples"]
+installFiles  = @["LICENSE", "NOTICE"]
 
 requires "nim >= 2.0.0"
 
